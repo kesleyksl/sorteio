@@ -2,6 +2,8 @@ var sorteio = [];
 
  var tempo = 5;
 
+ const novoSorteio = document.getElementById("novoSorteio");
+ novoSorteio.style.display ='none';
 const sortear = document.getElementById("sortear");
 
 if(sorteio.length == 0){
@@ -54,8 +56,9 @@ adicionar.onclick = function(){
 
 
                sortear.style.display = "inline";
-
+                
             }
+            
 
 }
 
@@ -80,10 +83,11 @@ function mostrarOpcoes(){
 
     cadastrados.innerHTML = '';
 
+    sorteio.sort();
 
     for(let i = 0; i<sorteio.length; i++){
 
-        cadastrados.innerHTML= cadastrados.innerHTML + "<div class='identificador' ondblclick='removido(this)'>" + sorteio[i] + "</div>" + "<br>";
+        cadastrados.innerHTML= cadastrados.innerHTML + "<div class='identificador text-justify btnApagar' onClick='removido(this)' title='Click para remover' >" + sorteio[i] + "</div>" + "<br>";
     }
 }
 
@@ -95,6 +99,7 @@ function contagemRegressiva(){
     let teste2 = document.getElementById('cronometro').style.width;
     if(tempo == 0){
         document.getElementById('cronometro').innerHTML = '';
+        novoSorteio.style.display='inline';
     }else{
         tempo--;
 
@@ -104,26 +109,38 @@ function contagemRegressiva(){
     }
 }
 
+var alerta = document.getElementById('alert');
+alerta.style.display = 'none';
 
 function inclui(adiciona){
 
     if(!existe(adiciona) && adiciona !==""){
 
         sorteio.push(adiciona);
+        
+        alerta.style.display = 'none';
 
         return 1;
     }
-    return 0;
-}
+    document.getElementById('nome').value='';
+    
 
+        alerta.style.display = 'inline';
+        return 0;
+
+    
+}
 function existe(testa){
     let existente = 0;
+    
     for(let i = 0; i<sorteio.length; i++){
 
         if(sorteio[i] === testa){
 
             existente = 1;
+
         }
+        
     }
 
     return existente;
@@ -142,4 +159,11 @@ function removido(valor){
         sortear.style.display = 'none';
     }
 
+}
+
+novoSorteio.onclick = function(){
+    novoSorteio.style.display = 'none';
+    
+    window.location.reload();
+    
 }

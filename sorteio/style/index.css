@@ -1,5 +1,7 @@
 body{
     text-align: center;
+    font-size: 20px;
+    font-weight: 400;
 }
 header{
     margin-bottom: 5%;
@@ -15,3 +17,25 @@ button{
     margin-bottom: 3%;
 
 }
+
+.btnApagar::before{/*"        \2613          "*/
+    content: '\2718';
+    color: white;
+    
+    background-color: rgb(247, 108, 108);
+    margin-right: 20px;
+    font-weight: 900;
+    border: solid 1px black;
+
+}
+.btnApagar:hover:before{
+    background-color: #ff0000;
+    
+    cursor: pointer;
+}
+
+#cadastrados{
+    margin: 0 auto;
+    width: 200px;;
+}
+

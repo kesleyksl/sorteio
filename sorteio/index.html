@@ -21,11 +21,12 @@
         <label for="nome" id="nomeCampo">Novo restaurante:</label>
         <input type="text" id="nome" name="campo1" />
     </div>
+    <span id="alert" style="font-size: 12px; color: #ff0000">Restaurante cadastrado ou input vazio</span> 
 
 
 </form>
      <div>
-        <button type="button" id="adicionar" class="btn btn-primary">Adicionar Novo</button>
+        <button type="button" id="adicionar" class="btn btn-success">Adicionar Novo</button>
 
 
             <button type="button" id="sortear" class="btn btn-danger">Sortear</button>
@@ -35,9 +36,16 @@
 
 
      </div>
-    <div id="cadastrados"></div>
+    
+
+        <div id="cadastrados"></div>
+    
 
     <div id="cronometro" >5 segundos</div>
+</div>
+</br>
+</br>
+<div><button type="button" id="novoSorteio" class="btn btn-primary">Novo Sorteio</button>
 
 <script src="sorteio.js"></script>
 </body>
